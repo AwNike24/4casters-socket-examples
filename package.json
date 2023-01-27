@@ -1,0 +1,31 @@
+{
+  "name": "4casters-socket-examples",
+  "version": "1.0.0",
+  "description": "Example code for the 4casters streaming api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "lint:fix": "eslint --fix --ext .js --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AwNike24/4casters-socket-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AwNike24/4casters-socket-examples/issues"
+  },
+  "homepage": "https://github.com/AwNike24/4casters-socket-examples#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "socket.io-client": "^4.5.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.1"
+  }
+}
