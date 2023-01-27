@@ -8,5 +8,5 @@ foo@bar:~$ cd 4casters-socket-examples
 ```
 2. Replace username and password in index.js, lines 7 and 8 with your valid 4casters username and password
 ```console
-foo@bar:~$ npm run start
+4casters-socket-examples:~$ npm run start
 ```
