@@ -40,27 +40,24 @@ logIn({ username, password }).then((response) => {
   });
 
   // initialize a socket connection to the priceUpdate feed
-  const socket = manager.socket("/priceUpdates", {
+  const socket = manager.socket("/v2/user/" + username, {
     query: { token: auth },
   });
 
   // log connection event
   socket.on("connect", () => {
-    console.log(`*** ${username} connected to Price Feeds ***`);
+    console.log(`*** ${username} connected to User Feeds ***`);
   });
 
-  // log gameUpdate event
-  // this event is emitted whenever a new game is created
-  socket.on("gameUpdate", (gameUpdate) => {
-    const parsedGameUpdate = JSON.parse(gameUpdate);
-    console.log(parsedGameUpdate);
-  });
-
-  // log orderUpdate event
-  // this event is emitted whenever a price changes
-  // on the 4caster exchange
-  socket.on("orderUpdate", (orderUpdate) => {
-    const parsedOrderUpdate = JSON.parse(orderUpdate);
-    console.log(parsedOrderUpdate);
+  // Listen for positionUpdate events from the server
+  // These position update messages are emitted:
+  // - every time you create an order
+  // - every time you cancel an order
+  // - any time one of your orders is filled
+  // - every time you fill someone else's order
+  socket.on("positionUpdate", (positionUpdate) => {
+    const parsedGameUpdate = JSON.parse(positionUpdate);
+    // Log the parsed position update message
+    console.log(positionUpdate);
   });
 });
